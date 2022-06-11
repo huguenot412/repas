@@ -1,0 +1,33 @@
+<mat-card class="meal-card">
+    <mat-card-header>
+        <mat-card-title>{{ meal.name }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image *ngIf="meal.image" [src]="meal.image">
+    <mat-card-content class="meal-card-content">
+        <mat-list>
+            <mat-list-item *ngIf="meal.source">{{ meal.source.name}}</mat-list-item>
+            <mat-list-item *ngIf="meal.source?.page">Page {{ meal.source?.page }}</mat-list-item>
+            <mat-list-item *ngIf="meal.link">
+                <a [href]="meal.link" target="_blank" class="link">{{ meal.link }}</a>
+            </mat-list-item>
+            <mat-list-item *ngIf="meal.time">{{ meal.time }} minutes</mat-list-item>
+        </mat-list>
+        <section *ngIf="meal.ingredients">
+            <table mat-table [dataSource]="meal.ingredients" class="ingredients-table">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Ingredients</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef>Amount</th>
+                    <td mat-cell *matCellDef="let element"> {{element.quantity + " " + (element.unit || '')}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </section>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="openDialog(meal)">Edit</button>
+    </mat-card-actions>
+</mat-card>

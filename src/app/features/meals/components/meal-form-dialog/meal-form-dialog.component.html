@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+<mat-dialog-content>
+    <form #mealForm="ngForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" [(ngModel)]="mealFormModel.name" name="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Source</mat-label>
+            <input matInput placeholder="Source" [(ngModel)]="mealFormModel.source.name" name="source">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Page</mat-label>
+            <input matInput placeholder="Page" [(ngModel)]="mealFormModel.source.page" name="page">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Time (minutes)</mat-label>
+            <input matInput placeholder="Time" [(ngModel)]="mealFormModel.time" name="time">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Link</mat-label>
+            <input matInput placeholder="Link" [(ngModel)]="mealFormModel.link" name="link">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Rating (1 - 5)</mat-label>
+            <input matInput placeholder="Rating" [(ngModel)]="mealFormModel.rating" name="rating">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Image</mat-label>
+            <input matInput placeholder="Image" [(ngModel)]="mealFormModel.image" name="image">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Instructions</mat-label>
+            <textarea matInput placeholder="Instructions" [(ngModel)]="mealFormModel.instructions" name="instructions"></textarea>
+        </mat-form-field>
+        <h2>Ingredients</h2>
+        <ng-container *ngFor="let ingredient of mealFormModel.ingredients; let i = index">
+            <mat-form-field  appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" [(ngModel)]="mealFormModel.ingredients[i].name" [name]="'name' + i">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Amount</mat-label>
+                <input matInput placeholder="Amount" [(ngModel)]="mealFormModel.ingredients[i].quantity" [name]="'amount' + i">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Unit</mat-label>
+                <mat-select [(ngModel)]="ingredient.unit" [name]="'unit' + i">
+                  <mat-option *ngFor="let unit of units" [value]="unit">
+                    {{ unit }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </ng-container>
+        <button mat-flat-button (click)="addIngredient()">Add</button>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+        Save
+    </button>
+</mat-dialog-actions>

@@ -1,0 +1,22 @@
+.meal-card {
+    display: flex;
+    flex-direction: column;
+    flex: 01 0 3rem;
+    margin: .5rem;
+    min-width: 14rem;
+    max-width: 20rem;
+}
+
+.ingredient-quantity {
+    margin-left: .2rem;
+}
+
+.ingredients-table {
+    width: 100%;
+}
+
+.link {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

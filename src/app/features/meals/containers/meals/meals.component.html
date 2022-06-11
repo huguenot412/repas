@@ -1,0 +1,4 @@
+<button mat-stroked-button color="primary" (click)="openDialog()">Add Meal</button>
+<section class="meal-card-container">
+    <app-meal-card *ngFor="let meal of meals$ | async" [meal]="meal"></app-meal-card>
+</section>
