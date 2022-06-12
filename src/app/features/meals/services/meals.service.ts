@@ -11,18 +11,15 @@ const MEALS: Meal[] = [
     ingredients: [
       {
         name: 'pizza dough',
-        quantity: '1',
-        unit: Unit.None
+        amount: '1'
       }, 
       {
         name: 'cheese',
-        quantity: '100',
-        unit: Unit.Grams
+        amount: '100'
       }, 
       {
         name: 'pizza sauce',
-        quantity: '80',
-        unit: Unit.Grams
+        amount: '80'
       }
     ],
     instructions: 'Put it all together and stick it in the over',
@@ -43,18 +40,15 @@ const MEALS: Meal[] = [
     ingredients: [
       {
         name: 'flour',
-        quantity: '250',
-        unit: Unit.Grams
+        amount: '250'
       }, 
       {
         name: 'eggs',
-        quantity: '4',
-        unit: Unit.None
+        amount: '4'
       }, 
       {
         name: 'milk',
-        quantity: '200',
-        unit: Unit.Ml
+        amount: '200'
       }
     ],
     instructions: 'Put it all together and cook it on a pan',

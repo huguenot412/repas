@@ -34,25 +34,20 @@
             <textarea matInput placeholder="Instructions" [(ngModel)]="mealFormModel.instructions" name="instructions"></textarea>
         </mat-form-field>
         <h2>Ingredients</h2>
-        <ng-container *ngFor="let ingredient of mealFormModel.ingredients; let i = index">
+        <button mat-flat-button (click)="addIngredient()">Add New Ingredient</button>
+        <mat-card class="ingredient-card" *ngFor="let ingredient of mealFormModel.ingredients; let i = index">
             <mat-form-field  appearance="fill">
                 <mat-label>Name</mat-label>
                 <input matInput placeholder="Name" [(ngModel)]="mealFormModel.ingredients[i].name" [name]="'name' + i">
             </mat-form-field>
             <mat-form-field  appearance="fill">
                 <mat-label>Amount</mat-label>
-                <input matInput placeholder="Amount" [(ngModel)]="mealFormModel.ingredients[i].quantity" [name]="'amount' + i">
+                <input matInput placeholder="Amount" [(ngModel)]="mealFormModel.ingredients[i].amount" [name]="'amount' + i">
             </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Unit</mat-label>
-                <mat-select [(ngModel)]="ingredient.unit" [name]="'unit' + i">
-                  <mat-option *ngFor="let unit of units" [value]="unit">
-                    {{ unit }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-        </ng-container>
-        <button mat-flat-button (click)="addIngredient()">Add</button>
+            <mat-card-actions>
+                <button mat-flat-button (click)="deleteIngredient(ingredient)">Delete</button>
+            </mat-card-actions>
+        </mat-card>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

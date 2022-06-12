@@ -2,8 +2,7 @@ import { Unit } from "./meals.enums";
 
 export interface Ingredient {
     name: string,
-    quantity: string,
-    unit: Unit
+    amount: string
 }
 
 export interface Source {

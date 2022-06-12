@@ -35,12 +35,14 @@ export class MealFormDialogComponent implements OnInit {
   addIngredient(): void {
     const newIngredient: Ingredient = {
       name: 'New ingredient',
-      quantity: '',
-      unit: Unit.None
+      amount: ''
     }
     
-    this.mealFormModel.ingredients = [...this.mealFormModel.ingredients, newIngredient];
+    this.mealFormModel.ingredients = [newIngredient, ...this.mealFormModel.ingredients, newIngredient];
+  }
 
+  deleteIngredient(ingredient: Ingredient): void {
+    console.log(ingredient);
   }
 
 }

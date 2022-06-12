@@ -11,7 +11,7 @@ import { MealFormDialogComponent } from '../meal-form-dialog/meal-form-dialog.co
 export class MealCardComponent implements OnInit {
   @Input()
   meal!: Meal;
-  displayedColumns = ['name', 'quantity'];
+  displayedColumns = ['name', 'amount'];
 
   constructor(private dialog: MatDialog,) { }
 
